@@ -791,6 +791,19 @@
       letter-spacing: 0.04em;
     }
 
+    .signup-sink {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
+      border: 0;
+      white-space: nowrap;
+    }
+
     .footer-brand {
       font-family: var(--font-serif);
       font-size: 1.25rem;
@@ -1697,8 +1710,9 @@
         <div>
           <h2>Stay close</h2>
           <p>Drop alerts, fittings, and studio notes. No spam — just the show.</p>
-          <form class="signup" action="#" method="get" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Joined';">
-            <input type="email" name="email" placeholder="Email address" required aria-label="Email address" />
+          <iframe class="signup-sink" name="signup-sink" title="Signup" tabindex="-1" aria-hidden="true"></iframe>
+          <form class="signup" action="https://docs.google.com/forms/d/e/1FAIpQLSe493QerQPuWLMnXTOzYaOZsaiEup3uGCbMOrkkXJkcDmTV1w/formResponse" method="POST" target="signup-sink" onsubmit="var b=this.querySelector('button'); b.textContent='Joined'; b.disabled=true;">
+            <input type="email" name="entry.1651860701" placeholder="Email address" required aria-label="Email address" />
             <button type="submit">Join</button>
           </form>
           <p class="signup-note">Drop alerts only.</p>
