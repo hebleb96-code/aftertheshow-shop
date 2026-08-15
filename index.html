@@ -1470,6 +1470,155 @@
       border-color: var(--text);
       background: rgba(0,0,0,0.7);
     }
+
+    /* Welcome offer */
+    .welcome {
+      position: fixed;
+      inset: 0;
+      z-index: 260;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    .welcome.open { display: flex; }
+
+    .welcome-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 6, 7, 0.84);
+      backdrop-filter: blur(14px);
+    }
+
+    .welcome-card {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 420px);
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      padding: 2.35rem 1.75rem 1.7rem;
+      text-align: center;
+    }
+
+    .welcome-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    .welcome-kicker {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .welcome-card h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 5vw, 2.35rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 0.55rem;
+    }
+
+    .welcome-line {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .welcome-form {
+      display: flex;
+      border: 1px solid var(--border-strong);
+      margin-bottom: 1.05rem;
+    }
+
+    .welcome-form input {
+      flex: 1;
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+      outline: none;
+      min-width: 0;
+    }
+
+    .welcome-form input::placeholder { color: var(--dim); }
+
+    .welcome-form input:focus { outline: 1px solid var(--accent); outline-offset: -1px; }
+
+    .welcome-form button {
+      padding: 0.85rem 1.1rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--text);
+      color: var(--bg);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .welcome-form button:hover { background: #fff; }
+
+    .welcome-skip {
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--dim);
+      cursor: pointer;
+    }
+
+    .welcome-skip:hover { color: var(--muted); }
+
+    .welcome-close {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      z-index: 3;
+      width: 2.2rem;
+      height: 2.2rem;
+      border: 1px solid var(--border-strong);
+      background: rgba(0,0,0,0.45);
+      cursor: pointer;
+      color: var(--text);
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .welcome-close:hover {
+      border-color: var(--text);
+      background: rgba(0,0,0,0.7);
+    }
+
+    .welcome-code {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6vw, 2.6rem);
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 0.35rem 0 0.7rem;
+    }
+
+    .welcome-use {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    body.welcome-open { overflow: hidden; }
+
+    @media (max-width: 640px) {
+      .welcome-card { padding: 2.1rem 1.25rem 1.5rem; }
+      .welcome-form { flex-direction: column; }
+      .welcome-form button { width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -1835,6 +1984,28 @@
     </div>
   </div>
 
+  <div class="welcome" id="welcome" hidden>
+    <div class="welcome-backdrop" data-close-welcome></div>
+    <div class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+      <button class="welcome-close" type="button" data-close-welcome aria-label="Close">×</button>
+      <div id="welcome-offer">
+        <p class="welcome-kicker">First order</p>
+        <h2 id="welcome-title">10% off your first order</h2>
+        <p class="welcome-line">Drop alerts. No spam.</p>
+        <form class="welcome-form" id="welcome-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe493QerQPuWLMnXTOzYaOZsaiEup3uGCbMOrkkXJkcDmTV1w/formResponse" method="POST" target="signup-sink">
+          <input type="email" name="entry.1651860701" placeholder="Email address" required autocomplete="email" aria-label="Email address" />
+          <button type="submit">Get the code</button>
+        </form>
+        <button type="button" class="welcome-skip" data-close-welcome>No thanks</button>
+      </div>
+      <div id="welcome-done" hidden>
+        <p class="welcome-kicker">Your code</p>
+        <p class="welcome-code">AFTER10</p>
+        <p class="welcome-use">Use AFTER10 at checkout.</p>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       var CART_KEY = "ats-cart";
@@ -2182,6 +2353,57 @@
       });
 
       updateBadge();
+    })();
+
+    (function () {
+      var KEY = "ats-welcome";
+      var welcome = document.getElementById("welcome");
+      var offer = document.getElementById("welcome-offer");
+      var done = document.getElementById("welcome-done");
+      var form = document.getElementById("welcome-form");
+      if (!welcome || !form) return;
+
+      function seen() {
+        try { return !!localStorage.getItem(KEY); } catch (e) { return true; }
+      }
+
+      function remember() {
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+      }
+
+      function openWelcome() {
+        welcome.hidden = false;
+        welcome.classList.add("open");
+        document.body.classList.add("welcome-open");
+        var field = form.querySelector("input");
+        if (field) field.focus();
+      }
+
+      function closeWelcome() {
+        remember();
+        welcome.classList.remove("open");
+        welcome.hidden = true;
+        document.body.classList.remove("welcome-open");
+      }
+
+      welcome.querySelectorAll("[data-close-welcome]").forEach(function (el) {
+        el.addEventListener("click", closeWelcome);
+      });
+
+      form.addEventListener("submit", function () {
+        remember();
+        offer.hidden = true;
+        done.hidden = false;
+        welcome.querySelector(".welcome-close").focus();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && welcome.classList.contains("open")) closeWelcome();
+      });
+
+      if (!seen()) {
+        setTimeout(openWelcome, 1500);
+      }
     })();
   </script>
 </body>
