@@ -322,17 +322,23 @@
 
     .card-visual {
       position: relative;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
       border-bottom: 1px solid var(--border);
-      min-height: 10rem;
     }
 
     .card-visual img.product {
-      display: block;
-      width: 100%;
-      height: auto;
+      position: absolute;
+      inset: 0.7rem;
+      width: calc(100% - 1.4rem);
+      height: calc(100% - 1.4rem);
       object-fit: contain;
       object-position: center;
+      transition: transform 0.45s ease;
+    }
+
+    .card:hover .card-visual img.product {
+      transform: scale(1.02);
     }
 
     .dev-card {
