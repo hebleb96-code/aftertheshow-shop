@@ -1627,10 +1627,6 @@
       <a href="#" class="logo">After the Show <span>LA</span></a>
       <div class="nav-actions">
         <a class="nav-cta" href="#shop">Shop the drop</a>
-        <button class="nav-bag" type="button" id="bag-btn" aria-label="Open bag">
-          Bag
-          <span class="bag-count" id="bag-count" hidden>0</span>
-        </button>
       </div>
     </div>
   </header>
@@ -1672,7 +1668,7 @@
             data-back="products/wet-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/wet-front.png" alt="Wet tee, front" />
             </div>
             <div class="card-body">
@@ -1693,7 +1689,7 @@
             data-back="products/hair-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/hair-front.png" alt="Pink hair dye tee, front" />
             </div>
             <div class="card-body">
@@ -1714,7 +1710,7 @@
             data-back="products/lung-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/lung-front.png" alt="Lung tee, front" />
             </div>
             <div class="card-body">
@@ -1735,7 +1731,7 @@
             data-back="products/found-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/found-front.png" alt="Found tee, front" />
             </div>
             <div class="card-body">
@@ -1756,7 +1752,7 @@
             data-back="products/wings-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/wings-front.png" alt="Wings tee, front" />
             </div>
             <div class="card-body">
@@ -1777,7 +1773,7 @@
             data-back="products/314-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/314-front.png" alt="3:14 olive tee, front" />
             </div>
             <div class="card-body">
@@ -1798,7 +1794,7 @@
             data-back="products/314-black-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/314-black-front.png" alt="3:14 black tee, front" />
             </div>
             <div class="card-body">
@@ -1819,7 +1815,7 @@
             data-back="products/314-navy-back.png">
             <div class="card-visual">
               <span class="ph" aria-hidden="true"></span>
-              <span class="badge live">Available</span>
+              <span class="badge soon">Coming soon</span>
               <img class="product" src="products/314-navy-front.png" alt="3:14 navy tee, front" />
             </div>
             <div class="card-body">
@@ -1880,7 +1876,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 After the Show · Los Angeles</span>
-        <span>By placing an order you agree to our <a href="shipping.html">Shipping</a> and <a href="returns.html">Returns</a> policies.</span>
+        <span>When the drop goes live, orders are subject to our <a href="shipping.html">Shipping</a> and <a href="returns.html">Returns</a> policies.</span>
       </div>
     </div>
   </footer>
@@ -1908,78 +1904,7 @@
         <div class="card-foot">
           <span class="price" id="viewer-price"></span>
         </div>
-        <div class="size-row" role="group" aria-label="Size">
-          <button type="button" class="size-btn" data-size="S">S</button>
-          <button type="button" class="size-btn selected" data-size="M">M</button>
-          <button type="button" class="size-btn" data-size="L">L</button>
-          <button type="button" class="size-btn" data-size="XL">XL</button>
-        </div>
-        <button type="button" class="btn btn-primary" id="add-to-bag">Add to bag</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="drawer" id="cart-drawer" hidden>
-    <div class="drawer-backdrop" data-close-cart></div>
-    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
-      <div class="drawer-head">
-        <h2 id="cart-title">Bag</h2>
-        <button class="drawer-close" type="button" data-close-cart aria-label="Close">×</button>
-      </div>
-      <div class="drawer-body" id="cart-body"></div>
-      <div class="drawer-foot" id="cart-foot" hidden>
-        <div class="subtotal">
-          <span>Subtotal</span>
-          <strong id="cart-subtotal">$0</strong>
-        </div>
-        <button type="button" class="btn btn-primary" id="checkout-btn">Checkout</button>
-      </div>
-    </aside>
-  </div>
-
-  <div class="checkout" id="checkout" hidden>
-    <div class="checkout-backdrop" data-close-checkout></div>
-    <div class="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
-      <button class="checkout-close" type="button" data-close-checkout aria-label="Close">×</button>
-      <div id="checkout-form-view">
-        <h2 id="checkout-title">Checkout</h2>
-        <p class="checkout-note">You’ll pay on Stripe. Mixed bags check out one style at a time.</p>
-        <div id="stripe-pay-list"></div>
-        <form class="checkout-form" id="checkout-form" hidden>
-          <div class="field">
-            <label for="co-name">Name</label>
-            <input id="co-name" name="name" type="text" required autocomplete="name" />
-          </div>
-          <div class="field">
-            <label for="co-email">Email</label>
-            <input id="co-email" name="email" type="email" required autocomplete="email" />
-          </div>
-          <div class="field">
-            <label for="co-address">Address</label>
-            <input id="co-address" name="address" type="text" required autocomplete="street-address" />
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="co-city">City</label>
-              <input id="co-city" name="city" type="text" required autocomplete="address-level2" />
-            </div>
-            <div class="field">
-              <label for="co-state">State</label>
-              <input id="co-state" name="state" type="text" required autocomplete="address-level1" />
-            </div>
-            <div class="field">
-              <label for="co-zip">Zip</label>
-              <input id="co-zip" name="zip" type="text" required autocomplete="postal-code" />
-            </div>
-          </div>
-          <div class="order-summary" id="order-summary"></div>
-          <button type="submit" class="btn btn-primary">Place order</button>
-        </form>
-      </div>
-      <div class="confirm" id="checkout-confirm" hidden>
-        <h2>Order placed</h2>
-        <p>We’ll email a receipt.</p>
-        <button type="button" class="btn btn-primary" data-close-checkout>Close</button>
+        <button type="button" class="btn btn-primary" id="get-notified">Get notified</button>
       </div>
     </div>
   </div>
@@ -1989,26 +1914,25 @@
     <div class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
       <button class="welcome-close" type="button" data-close-welcome aria-label="Close">×</button>
       <div id="welcome-offer">
-        <p class="welcome-kicker">First order</p>
-        <h2 id="welcome-title">10% off your first order</h2>
-        <p class="welcome-line">Drop alerts. No spam.</p>
+        <p class="welcome-kicker">Coming soon</p>
+        <h2 id="welcome-title">Get notified</h2>
+        <p class="welcome-line">Sign up and we’ll email you when the drop is available. 10% off your first order.</p>
         <form class="welcome-form" id="welcome-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe493QerQPuWLMnXTOzYaOZsaiEup3uGCbMOrkkXJkcDmTV1w/formResponse" method="POST" target="signup-sink">
           <input type="email" name="entry.1651860701" placeholder="Email address" required autocomplete="email" aria-label="Email address" />
-          <button type="submit">Get the code</button>
+          <button type="submit">Get notified</button>
         </form>
         <button type="button" class="welcome-skip" data-close-welcome>No thanks</button>
       </div>
       <div id="welcome-done" hidden>
         <p class="welcome-kicker">Your code</p>
         <p class="welcome-code">AFTER10</p>
-        <p class="welcome-use">Use AFTER10 at checkout.</p>
+        <p class="welcome-use">Use AFTER10 on your first order when the drop goes live.</p>
       </div>
     </div>
   </div>
 
   <script>
     (function () {
-      var CART_KEY = "ats-cart";
       var viewer = document.getElementById("viewer");
       var img = document.getElementById("viewer-img");
       var side = document.getElementById("viewer-side");
@@ -2016,21 +1940,8 @@
       var descEl = document.getElementById("viewer-desc");
       var priceEl = document.getElementById("viewer-price");
       var dots = viewer.querySelectorAll(".viewer-dot");
-      var sizeBtns = viewer.querySelectorAll(".size-btn");
-      var drawer = document.getElementById("cart-drawer");
-      var cartBody = document.getElementById("cart-body");
-      var cartFoot = document.getElementById("cart-foot");
-      var cartSubtotal = document.getElementById("cart-subtotal");
-      var bagCount = document.getElementById("bag-count");
-      var checkout = document.getElementById("checkout");
-      var checkoutFormView = document.getElementById("checkout-form-view");
-      var checkoutConfirm = document.getElementById("checkout-confirm");
-      var checkoutForm = document.getElementById("checkout-form");
-      var orderSummary = document.getElementById("order-summary");
       var idx = 0;
       var views = [];
-      var currentProduct = null;
-      var selectedSize = "M";
 
       function hideBroken(el) {
         el.addEventListener("error", function () {
@@ -2049,166 +1960,9 @@
       }
 
       function unlockScroll() {
-        if (
-          !viewer.classList.contains("open") &&
-          !drawer.classList.contains("open") &&
-          !checkout.classList.contains("open")
-        ) {
+        if (!viewer.classList.contains("open")) {
           document.body.classList.remove("viewer-open");
         }
-      }
-
-      function money(n) {
-        return "$" + n;
-      }
-
-      function parsePrice(str) {
-        return parseInt(String(str).replace(/[^0-9]/g, ""), 10) || 0;
-      }
-
-      function loadCart() {
-        try {
-          var raw = localStorage.getItem(CART_KEY);
-          var data = raw ? JSON.parse(raw) : [];
-          return Array.isArray(data) ? data : [];
-        } catch (e) {
-          return [];
-        }
-      }
-
-      function saveCart(cart) {
-        localStorage.setItem(CART_KEY, JSON.stringify(cart));
-      }
-
-      function cartQty(cart) {
-        return cart.reduce(function (sum, item) { return sum + item.qty; }, 0);
-      }
-
-      function cartTotal(cart) {
-        return cart.reduce(function (sum, item) { return sum + item.price * item.qty; }, 0);
-      }
-
-      function updateBadge() {
-        var n = cartQty(loadCart());
-        bagCount.textContent = String(n);
-        if (n > 0) bagCount.removeAttribute("hidden");
-        else bagCount.setAttribute("hidden", "");
-      }
-
-      function renderCart() {
-        var cart = loadCart();
-        if (!cart.length) {
-          cartBody.innerHTML = '<p class="cart-empty">Nothing in the bag.</p>';
-          cartFoot.hidden = true;
-          return;
-        }
-        cartFoot.hidden = false;
-        cartSubtotal.textContent = money(cartTotal(cart));
-        cartBody.innerHTML = cart.map(function (item, i) {
-          return (
-            '<div class="cart-item">' +
-              '<img src="' + item.front + '" alt="' + item.name + ' tee, front" />' +
-              "<div>" +
-                '<p class="cart-item-name">' + item.name + "</p>" +
-                '<p class="cart-item-meta">Size ' + item.size + " · " + money(item.price) + "</p>" +
-                '<div class="cart-item-row">' +
-                  '<div class="qty">' +
-                    '<button type="button" data-qty="-1" data-i="' + i + '" aria-label="Decrease quantity">−</button>' +
-                    "<span>" + item.qty + "</span>" +
-                    '<button type="button" data-qty="1" data-i="' + i + '" aria-label="Increase quantity">+</button>' +
-                  "</div>" +
-                  '<button type="button" class="cart-remove" data-remove="' + i + '">Remove</button>' +
-                "</div>" +
-              "</div>" +
-            "</div>"
-          );
-        }).join("");
-      }
-
-      function openCart() {
-        renderCart();
-        drawer.hidden = false;
-        drawer.classList.add("open");
-        lockScroll();
-      }
-
-      function closeCart() {
-        drawer.classList.remove("open");
-        drawer.hidden = true;
-        unlockScroll();
-      }
-
-      function renderSummary() {
-        var cart = loadCart();
-        var lines = cart.map(function (item) {
-          return (
-            '<div class="order-line"><span>' +
-            item.name + " · " + item.size + " × " + item.qty +
-            "</span><span>" + money(item.price * item.qty) + "</span></div>"
-          );
-        }).join("");
-        orderSummary.innerHTML =
-          "<h3>Order summary</h3>" +
-          lines +
-          '<div class="order-total"><span>Total</span><strong>' +
-          money(cartTotal(cart)) +
-          "</strong></div>";
-      }
-
-      function stripeUrlFor(item) {
-        if (item && item.stripe) return item.stripe;
-        var card = document.querySelector('.card[data-front="' + (item && item.front ? item.front : "") + '"]');
-        return card && card.dataset.stripe ? card.dataset.stripe : "";
-      }
-
-      function uniqueStyles(cart) {
-        var seen = [];
-        cart.forEach(function (item) {
-          if (seen.every(function (s) { return s.front !== item.front; })) seen.push(item);
-        });
-        return seen;
-      }
-
-      function goToStripe(item) {
-        var url = stripeUrlFor(item);
-        if (!url) return false;
-        window.location.href = url;
-        return true;
-      }
-
-      function openCheckout() {
-        var cart = loadCart();
-        if (!cart.length) return;
-        var styles = uniqueStyles(cart);
-        if (styles.length === 1 && goToStripe(styles[0])) return;
-        checkoutForm.reset();
-        checkoutFormView.hidden = false;
-        checkoutConfirm.hidden = true;
-        renderSummary();
-        closeCart();
-        checkout.hidden = false;
-        checkout.classList.add("open");
-        lockScroll();
-        var pay = document.getElementById("stripe-pay-list");
-        if (pay) {
-          pay.innerHTML = styles.map(function (item) {
-            var url = stripeUrlFor(item);
-            return '<a class="btn btn-primary" style="margin-top:0.55rem" href="' + url + '">Pay ' + item.name + "</a>";
-          }).join("");
-        }
-      }
-
-      function closeCheckout() {
-        checkout.classList.remove("open");
-        checkout.hidden = true;
-        unlockScroll();
-      }
-
-      function setSize(size) {
-        selectedSize = size;
-        sizeBtns.forEach(function (btn) {
-          btn.classList.toggle("selected", btn.dataset.size === size);
-        });
       }
 
       function showView(i) {
@@ -2224,14 +1978,6 @@
       }
 
       function openViewer(card) {
-        currentProduct = {
-          name: card.dataset.name,
-          desc: card.dataset.desc,
-          price: card.dataset.price,
-          front: card.dataset.front,
-          stripe: card.dataset.stripe || "",
-          back: card.dataset.back
-        };
         views = [
           { src: card.dataset.front, label: "Front", alt: card.dataset.name + " tee, front" },
           { src: card.dataset.back, label: "Back", alt: card.dataset.name + " tee, back" }
@@ -2239,7 +1985,6 @@
         nameEl.textContent = card.dataset.name;
         descEl.textContent = card.dataset.desc;
         priceEl.textContent = card.dataset.price;
-        setSize("M");
         viewer.hidden = false;
         viewer.classList.add("open");
         lockScroll();
@@ -2252,32 +1997,6 @@
         viewer.hidden = true;
         img.removeAttribute("src");
         unlockScroll();
-      }
-
-      function addToBag() {
-        if (!currentProduct) return;
-        var cart = loadCart();
-        var name = currentProduct.name;
-        var size = selectedSize;
-        var found = cart.find(function (item) {
-          return item.front === currentProduct.front && item.size === size;
-        });
-        if (found) {
-          found.qty += 1;
-        } else {
-          cart.push({
-            name: name,
-            size: size,
-            price: parsePrice(currentProduct.price),
-            qty: 1,
-            front: currentProduct.front,
-            stripe: currentProduct.stripe || ""
-          });
-        }
-        saveCart(cart);
-        updateBadge();
-        closeViewer();
-        openCart();
       }
 
       document.querySelectorAll(".card[data-name]").forEach(function (card) {
@@ -2298,65 +2017,24 @@
       dots.forEach(function (d) {
         d.addEventListener("click", function () { showView(Number(d.dataset.idx)); });
       });
-      sizeBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () { setSize(btn.dataset.size); });
-      });
-      document.getElementById("add-to-bag").addEventListener("click", addToBag);
-
-      document.getElementById("bag-btn").addEventListener("click", openCart);
-      drawer.querySelectorAll("[data-close-cart]").forEach(function (el) {
-        el.addEventListener("click", closeCart);
-      });
-      cartBody.addEventListener("click", function (e) {
-        var qtyBtn = e.target.closest("[data-qty]");
-        var removeBtn = e.target.closest("[data-remove]");
-        var cart = loadCart();
-        if (qtyBtn) {
-          var i = Number(qtyBtn.dataset.i);
-          var delta = Number(qtyBtn.dataset.qty);
-          if (!cart[i]) return;
-          cart[i].qty += delta;
-          if (cart[i].qty < 1) cart.splice(i, 1);
-          saveCart(cart);
-          updateBadge();
-          renderCart();
-        } else if (removeBtn) {
-          cart.splice(Number(removeBtn.dataset.remove), 1);
-          saveCart(cart);
-          updateBadge();
-          renderCart();
-        }
-      });
-      document.getElementById("checkout-btn").addEventListener("click", openCheckout);
-
-      checkout.querySelectorAll("[data-close-checkout]").forEach(function (el) {
-        el.addEventListener("click", closeCheckout);
-      });
-      checkoutForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        saveCart([]);
-        updateBadge();
-        checkoutFormView.hidden = true;
-        checkoutConfirm.hidden = false;
+      document.getElementById("get-notified").addEventListener("click", function () {
+        closeViewer();
+        document.dispatchEvent(new Event("ats-notify"));
       });
 
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
-          if (checkout.classList.contains("open")) closeCheckout();
-          else if (drawer.classList.contains("open")) closeCart();
-          else if (viewer.classList.contains("open")) closeViewer();
+          if (viewer.classList.contains("open")) closeViewer();
           return;
         }
         if (!viewer.classList.contains("open")) return;
         if (e.key === "ArrowLeft") showView(idx - 1);
         if (e.key === "ArrowRight") showView(idx + 1);
       });
-
-      updateBadge();
     })();
 
     (function () {
-      var KEY = "ats-welcome";
+      var KEY = "ats-notify";
       var welcome = document.getElementById("welcome");
       var offer = document.getElementById("welcome-offer");
       var done = document.getElementById("welcome-done");
@@ -2372,6 +2050,8 @@
       }
 
       function openWelcome() {
+        offer.hidden = false;
+        done.hidden = true;
         welcome.hidden = false;
         welcome.classList.add("open");
         document.body.classList.add("welcome-open");
@@ -2400,6 +2080,8 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && welcome.classList.contains("open")) closeWelcome();
       });
+
+      document.addEventListener("ats-notify", openWelcome);
 
       if (!seen()) {
         setTimeout(openWelcome, 1500);
